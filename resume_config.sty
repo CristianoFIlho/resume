@@ -2,11 +2,22 @@
 % Inspired by Pirate King Dark Theme
 % Supports both dark and light themes
 
+% Page setup - Load packages FIRST
+\RequirePackage[letterpaper, margin=0.75in]{geometry}
+\RequirePackage{xcolor}
+\RequirePackage{fontawesome}
+\RequirePackage{hyperref}
+\RequirePackage{enumitem}
+\RequirePackage{titlesec}
+\RequirePackage{tikz}
+\RequirePackage{array}
+\RequirePackage{tabularx}
+
 % Theme switching
 \newif\ifdarktheme
 \darkthemetrue % Default to dark theme
 
-% Color definitions
+% Color definitions - AFTER xcolor is loaded
 \ifdarktheme
     \definecolor{bg}{HTML}{2d2d2d}
     \definecolor{text}{HTML}{e0e0e0}
@@ -18,17 +29,6 @@
     \definecolor{textlight}{HTML}{666666}
     \definecolor{accent}{HTML}{0066cc}
 \fi
-
-% Page setup
-\RequirePackage[letterpaper, margin=0.75in]{geometry}
-\RequirePackage{xcolor}
-\RequirePackage{fontawesome}
-\RequirePackage{hyperref}
-\RequirePackage{enumitem}
-\RequirePackage{titlesec}
-\RequirePackage{tikz}
-\RequirePackage{array}
-\RequirePackage{tabularx}
 
 % Configure hyperlinks
 \hypersetup{
@@ -52,13 +52,13 @@
     {}
     {0em}
     {}
-    [\color{textlight}\titlerule[0.5pt]]
+    [\vspace{-0.5em}{\color{textlight}\titlerule[0.5pt]}]
 
 \titlespacing{\section}{0pt}{12pt}{6pt}
 
 % Custom commands for contact information
 \newcommand{\contact}[3]{%
-    \href{#2}{\fa{#1} \color{accent}#3}%
+    \href{#2}{#1 \color{accent}#3}%
 }
 
 % Custom command for experience entries
