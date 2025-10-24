@@ -62,17 +62,17 @@
 }
 
 % Custom command for experience entries
+% Parameters: #1=Position, #2=Company, #3=Location, #4=Dates, #5=Description
 \newcommand{\experience}[5]{%
     \begin{tabularx}{\textwidth}{@{}X@{\hspace{1em}}r@{}}
-        \textbf{\large #3} & \textbf{\color{accent}#1} \\
-        & \small #2 \\
-        & \small #4 \\
+        \textbf{#1} & \textbf{\color{accent}#2} \\
+        & \small\color{textlight}#3 \hspace{2em} #4 \\
     \end{tabularx}
-    \vspace{0.5em}
-    \begin{itemize}[leftmargin=1em, itemsep=0.2em]
+    \vspace{0.3em}
+    \begin{itemize}[leftmargin=1.5em, itemsep=0.15em, topsep=0.3em]
         #5
     \end{itemize}
-    \vspace{0.8em}
+    \vspace{0.6em}
 }
 
 % Custom command for skill tags
