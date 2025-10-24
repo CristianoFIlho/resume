@@ -1,0 +1,128 @@
+% Resume Configuration Package
+% Inspired by Pirate King Dark Theme
+% Supports both dark and light themes
+
+% Theme switching
+\newif\ifdarktheme
+\darkthemetrue % Default to dark theme
+
+% Color definitions
+\ifdarktheme
+    \definecolor{bg}{HTML}{2d2d2d}
+    \definecolor{text}{HTML}{e0e0e0}
+    \definecolor{textlight}{HTML}{b0b0b0}
+    \definecolor{accent}{HTML}{4a9eff}
+\else
+    \definecolor{bg}{HTML}{ffffff}
+    \definecolor{text}{HTML}{333333}
+    \definecolor{textlight}{HTML}{666666}
+    \definecolor{accent}{HTML}{0066cc}
+\fi
+
+% Page setup
+\RequirePackage[letterpaper, margin=0.75in]{geometry}
+\RequirePackage{xcolor}
+\RequirePackage{fontawesome}
+\RequirePackage{hyperref}
+\RequirePackage{enumitem}
+\RequirePackage{titlesec}
+\RequirePackage{tikz}
+\RequirePackage{array}
+\RequirePackage{tabularx}
+
+% Configure hyperlinks
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accent,
+    urlcolor=accent,
+    citecolor=accent,
+    pdfborder={0 0 0}
+}
+
+% Set page background
+\pagecolor{bg}
+\color{text}
+
+% Font configuration
+\renewcommand{\familydefault}{\sfdefault}
+
+% Section formatting
+\titleformat{\section}
+    {\Large\bfseries\color{text}}
+    {}
+    {0em}
+    {}
+    [\color{textlight}\titlerule[0.5pt]]
+
+\titlespacing{\section}{0pt}{12pt}{6pt}
+
+% Custom commands for contact information
+\newcommand{\contact}[3]{%
+    \href{#2}{\fa{#1} \color{accent}#3}%
+}
+
+% Custom command for experience entries
+\newcommand{\experience}[5]{%
+    \begin{tabularx}{\textwidth}{@{}X@{\hspace{1em}}r@{}}
+        \textbf{\large #3} & \textbf{\color{accent}#1} \\
+        & \small #2 \\
+        & \small #4 \\
+    \end{tabularx}
+    \vspace{0.5em}
+    \begin{itemize}[leftmargin=1em, itemsep=0.2em]
+        #5
+    \end{itemize}
+    \vspace{0.8em}
+}
+
+% Custom command for skill tags
+\newcommand{\skilltag}[1]{%
+    \tikz[baseline=(char.base)]{%
+        \node[shape=rectangle, draw=accent, fill=bg, text=accent, inner sep=2pt, font=\small] (char) {#1};%
+    }%
+    \hspace{0.3em}%
+}
+
+% Custom command for certifications
+\newcommand{\certification}[3]{%
+    \begin{tabularx}{\textwidth}{@{}X@{\hspace{1em}}r@{}}
+        \textbf{#1} & \small #3 \\
+        \small\color{textlight}#2 & \\
+    \end{tabularx}
+    \vspace{0.3em}
+}
+
+% Custom command for education
+\newcommand{\education}[4]{%
+    \begin{tabularx}{\textwidth}{@{}X@{\hspace{1em}}r@{}}
+        \textbf{\large #1} & \textbf{\color{accent}#2} \\
+        \small #3 & \small #4 \\
+    \end{tabularx}
+    \vspace{0.5em}
+}
+
+% Header formatting
+\newcommand{\resumeheader}[2]{%
+    \begin{center}
+        {\Huge\bfseries #1}\\[0.3em]
+        {\large #2}\\[1em]
+    \end{center}
+}
+
+% Contact row formatting
+\newcommand{\contactrow}[4]{%
+    \begin{center}
+        #1 \hspace{2em} #2 \hspace{2em} #3 \hspace{2em} #4
+    \end{center}
+    \vspace{1em}
+}
+
+% Remove page numbers
+\pagestyle{empty}
+
+% Custom itemize for better spacing
+\setlist[itemize]{leftmargin=1em, itemsep=0.1em, parsep=0em}
+
+% Custom spacing
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
