@@ -46,9 +46,9 @@
     {}
     {0em}
     {}
-    [\vspace{-0.8em}{\color{textlight}\titlerule[0.3pt]}]
+    [\vspace{-0.3em}{\color{textlight}\titlerule[0.3pt]}]
 
-\titlespacing{\section}{0pt}{6pt}{3pt}
+\titlespacing{\section}{0pt}{12pt}{6pt}
 
 % Custom commands for contact information
 \newcommand{\contact}[3]{%
@@ -105,15 +105,31 @@
     \end{center}
 }
 
-% Contact row formatting
-\newcommand{\contactrow}[4]{%
+% Contact separator
+\newcommand{\contactsep}{%
+    \hspace{0.3em}{\color{textlight}|}\hspace{0.3em}%
+}
+
+% Contact row formatting - Flexible
+\newcommand{\contactrow}[1]{%
     \begin{center}
-        #1 \hspace{0.3em}{\color{textlight}|}\hspace{0.3em} 
-        #2 \hspace{0.3em}{\color{textlight}|}\hspace{0.3em} 
-        #3 \hspace{0.3em}{\color{textlight}|}\hspace{0.3em} 
-        #4
+        #1
     \end{center}
     \vspace{0.6em}
+}
+
+% Custom command for projects
+% Parameters: #1=Name, #2=Tech Stack, #3=Link, #4=Description
+\newcommand{\project}[4]{%
+    \begin{tabularx}{\textwidth}{@{}X@{\hspace{0.3em}}r@{}}
+        \textbf{#1} & \textbf{\color{accent}#2} \\
+        \small\href{#3}{#3} & \\
+    \end{tabularx}
+    \vspace{0.1em}
+    \begin{itemize}[leftmargin=1em, itemsep=0.05em, topsep=0.1em]
+        #4
+    \end{itemize}
+    \vspace{0.3em}
 }
 
 % Remove page numbers
